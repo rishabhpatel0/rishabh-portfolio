@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-body bg-slate-50 text-slate-900 transition-colors duration-300 overflow-x-hidden;
+  }
+  
+  body.dark {
+    @apply bg-[#0b0f19] text-slate-100;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+body.dark ::-webkit-scrollbar-track {
+  @apply bg-[#0b0f19];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-indigo-500;
+}
+
+body.dark ::-webkit-scrollbar-thumb {
+  @apply bg-slate-800;
+}
+
+body.dark ::-webkit-scrollbar-thumb:hover {
+  @apply bg-indigo-500;
+}
+
+/* Custom Glow effects and Glassmorphism */
+.glow-effect {
+  @apply absolute rounded-full pointer-events-none filter blur-[120px] opacity-30 mix-blend-screen z-0;
+}
+
+.glass-card {
+  @apply bg-white/70 dark:bg-[#141a2a]/60 border border-slate-200/50 dark:border-white/[0.06] backdrop-blur-md shadow-lg shadow-slate-100/40 dark:shadow-none transition-all duration-300;
+}
+
+.glass-card:hover {
+  @apply -translate-y-1 border-indigo-500/20 dark:border-indigo-500/30 shadow-xl shadow-slate-200/50 dark:shadow-indigo-500/[0.02];
+}
+
+.section-title-underline {
+  @apply relative inline-block pb-3;
+}
+
+.section-title-underline::after {
+  content: '';
+  @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-300;
+}
+
+.section-title-underline:hover::after {
+  @apply w-full;
+}
